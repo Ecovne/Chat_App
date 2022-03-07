@@ -1,0 +1,77 @@
+@import "../../style/index.scss";
+
+.nav_container {
+  padding: 5px 15px;
+  background-color: rgba(0, 0, 0, 0.548);
+  box-shadow: 1px 1px 24px -9px #6e6e6e;
+  height: 50px;
+  overflow: hidden;
+  @include flex(sb, c);
+  > .search {
+    @include width(2, 0, 20%);
+    @include media(463) {
+      @include width(2, 0, 30%);
+    }
+    @include media(340) {
+      @include width(2, 0, 10%);
+    }
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    gap: 10px;
+    cursor: pointer;
+    > svg {
+      font-size: 20px;
+      color: white;
+    }
+    > img {
+      @include media(340) {
+        display: none;
+      }
+      max-width: 50px;
+      max-height: 50px;
+      object-fit: cover;
+    }
+  }
+  > .userinfo_logouts {
+    @include width(2, 0, 80%);
+    @include media(463) {
+      @include width(2, 0, 70%);
+    }
+    @include media(340) {
+      @include width(2, 0, 90%);
+    }
+    @include flex(e, c, 20px);
+    > .logo {
+      width: 40px;
+      height: 40px;
+      @include media(400) {
+        width: 30px;
+        height: 30px;
+      }
+      background-color: white;
+      border-radius: 50%;
+      img {
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    > p {
+      color: white;
+      font-weight: 300;
+      font-size: 14px;
+    }
+    > svg {
+      color: #21ade7;
+      font-size: 28px;
+      background-color: white;
+      border-radius: 50%;
+      padding: 4px;
+      cursor: pointer;
+    }
+  }
+}

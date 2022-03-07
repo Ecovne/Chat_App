@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap");
+:root {
+  --white: white;
+  --black: black;
+  --maincolor: #c67bff;
+  --hoverColor: #c68df513;
+  --backgroundcolor: #f2edf3;
+  --iconcolor: #acb9c0;
+  --shadow: 2px 2px 8px -1px rgba(0, 0, 0, 0.28);
+  --ubntoFont: "Ubuntu", sans-serif;
+  --backgroudSideMenu: rgb(247, 245, 245);
+  --backgroudSideMenuHover: rgb(177, 173, 173);
+
+  --maincolorGradient: linear-gradient(
+    to right,
+    rgb(218, 140, 255),
+    rgb(154, 85, 255)
+  );
+}
+:root.dark {
+  --white: #18151e;
+  --black: white;
+  --maincolor: #c67bff;
+  --hoverColor: #c68df513;
+  --backgroundcolor: rgb(41, 41, 41);
+  --iconcolor: #acb9c0;
+  --shadow: 2px 2px 8px -1px rgba(0, 0, 0, 0.28);
+  --ubntoFont: "Ubuntu", sans-serif;
+  --backgroudSideMenu: rgb(43, 42, 42);
+  --backgroudSideMenuHover: rgb(63, 62, 62);
+  --maincolorGradient: linear-gradient(
+    to right,
+    rgb(218, 140, 255),
+    rgb(154, 85, 255)
+  );
+}
+$white: var(--white);
+$black: var(--black);
+$maincolor: var(--maincolor);
+$backgroundcolor: var(--backgroundcolor);
+$shadow: var(--shadow);
+$iconcolor: var(--iconcolor);
+$ubntoFont: var(--ubntoFont);
+$hoverColor: var(--hoverColor);
+$maincolorGradient: var(--maincolorGradient);
+$backgroudSideMenu: var(--backgroudSideMenu);
+$backgroudSideMenuHover: var(--backgroudSideMenuHover);

@@ -1,0 +1,258 @@
+@import "../../style/index.scss";
+.home {
+  min-height: calc(100vh - 50px);
+  padding: 10px 20px;
+  @include media(990) {
+    padding: 10px 2px;
+  }
+  > .home_container {
+    @include flex(sb, c, 20px);
+    position: relative;
+    overflow: hidden;
+    > .friend {
+      box-shadow: 1px 1px 24px -9px #6e6e6e;
+      @include width(2, 20px, 30%);
+      transform: translateX(0);
+      transition: all 0.3s;
+      @include media(990) {
+        @include width(2, 0, 100%);
+      }
+      height: calc(100vh - 70px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+      > h5 {
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 25px;
+        background-color: rgba(0, 0, 0, 0.548);
+        color: white;
+      }
+      > svg {
+        color: white;
+        position: absolute;
+        top: 25px;
+        transform: translateY(-50%);
+        right: 20px;
+        font-size: 25px;
+        cursor: pointer;
+        display: none;
+        @include media(990) {
+          display: block;
+        }
+      }
+      > .friend_wrap {
+        > .item {
+          @include flex(s, c, 20px);
+          padding: 10px 20px;
+          margin-bottom: 10px;
+
+          cursor: pointer;
+          > .img {
+            // @include width(2, 20px, 23%);
+            // @include media(890) {
+            //   @include width(2, 20px, 10%);
+            // }
+            // @include media(350) {
+            //   @include width(2, 20px, 25%);
+            // }
+
+            overflow: hidden;
+            > img {
+              border-radius: 50%;
+              width: 40px;
+              height: 40px;
+              display: block;
+              object-fit: cover;
+            }
+          }
+          > .name {
+            @include width(2, 20px, 77%);
+            @include media(350) {
+              @include width(2, 20px, 75%);
+            }
+            > p {
+              font-size: 15px;
+              color: #a39e9e;
+              margin-bottom: 3px;
+              word-wrap: break-word;
+              &:last-child {
+                margin-bottom: 0;
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+    }
+    > .friend.close {
+      @include media(990) {
+        transform: translateX(-200%);
+      }
+    }
+    > .messagechat {
+      height: calc(100vh - 70px);
+      @include width(2, 20px, 70%);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+      @include media(990) {
+        @include width(2, 0, 100%);
+        position: absolute;
+        top: 0;
+        transform: translateX(200%);
+      }
+      > .header {
+        position: relative;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.548);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        > h6 {
+          color: white;
+          font-size: 23px;
+        }
+        > svg {
+          color: white;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 20px;
+          font-size: 25px;
+          cursor: pointer;
+          display: none;
+          @include media(990) {
+            display: block;
+          }
+        }
+      }
+      > .body {
+        box-shadow: 1px -10px 24px -9px #6e6e6e;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: calc(100vh - 170px);
+        position: relative;
+        > .wrap {
+          padding: 10px;
+          > .item {
+            margin-bottom: 10px;
+            @include flex(s, s, 10px);
+            > .img {
+              @include width(2, 10px, 6%);
+              @include media(550) {
+                @include width(2, 10px, 10%);
+              }
+              @include media(350) {
+                @include width(2, 10px, 15%);
+              }
+              > img {
+                @include media(420) {
+                  width: 35px;
+                  height: 35px;
+                }
+                width: 40px;
+                height: 40px;
+                display: block;
+                object-fit: cover;
+                border-radius: 50%;
+              }
+            }
+            > p {
+              @include width(2, 10px, 85%);
+
+              background-color: gray;
+              width: fit-content;
+              padding: 5px;
+              border-radius: 5px;
+              color: white;
+              font-size: clamp(8px, 3vw, 14px);
+              line-height: 1.5;
+              font-weight: 300;
+            }
+          }
+          > .item.me {
+            direction: rtl;
+            > p.me {
+              background-color: rgb(38, 133, 241);
+              direction: ltr;
+            }
+          }
+        }
+      }
+      > .footer {
+        height: 50px;
+        border-radius: 10px;
+
+        background-color: white;
+        overflow: hidden;
+        @include flex(s, c);
+        > form {
+          @include width(2, 0, 85%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          @include media(990) {
+            @include width(2, 0, 79%);
+          }
+          @include media(450) {
+            @include width(2, 0, 70%);
+          }
+          > textarea {
+            height: 50px;
+            resize: none;
+            width: 90%;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            outline: none;
+            font-size: 20px;
+            background-color: white;
+            padding: 10px;
+            &::placeholder {
+              color: rgb(199, 197, 197);
+            }
+          }
+          > button {
+            width: 10%;
+            height: 50px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+            > svg {
+              font-size: 30px;
+              color: rgb(99, 99, 236);
+            }
+          }
+        }
+        > .emoje {
+          @include width(2, 0, 10%);
+          @include media(990) {
+            @include width(2, 0, 15%);
+          }
+          @include media(450) {
+            @include width(2, 0, 30%);
+          }
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 5px;
+          > span {
+            font-size: 15px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    > .messagechat.open {
+      @include media(990) {
+        @include width(1, 0, 100%);
+        position: absolute;
+        top: 0;
+        transform: translateX(0);
+      }
+    }
+  }
+}

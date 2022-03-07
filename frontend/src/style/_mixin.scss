@@ -1,0 +1,73 @@
+@mixin pl($px) {
+  padding-inline-start: #{$px}px;
+}
+@mixin pr($px) {
+  padding-inline-end: #{$px}px;
+}
+@mixin mr($px) {
+  margin-inline-end: #{$px}px;
+}
+@mixin ml($px) {
+  margin-inline-start: #{$px}px;
+}
+
+@mixin flex($jus, $ali, $gap: 0) {
+  display: flex;
+
+  @if $jus == sb {
+    justify-content: space-between;
+  }
+  @if $jus == c {
+    justify-content: center;
+  }
+  @if $jus == se {
+    justify-content: space-evenly;
+  }
+  @if $jus == sa {
+    justify-content: space-around;
+  }
+
+  @if $jus == s {
+    justify-content: flex-start;
+  }
+  @if $jus == e {
+    justify-content: flex-end;
+  }
+  //   .......................
+  @if $ali == s {
+    align-items: flex-start;
+  }
+  @if $ali == c {
+    align-items: center;
+  }
+  @if $ali == b {
+    align-items: baseline;
+  }
+  gap: $gap;
+  flex-wrap: wrap;
+}
+
+@mixin width($x, $gap, $percent: false) {
+  @if $percent {
+    @if $gap==0 {
+      width: calc((#{$percent}));
+      max-width: calc((#{$percent}));
+    } @else {
+      width: calc((#{$percent}) - #{$gap} + (#{$gap} / #{$x}));
+      max-width: calc((#{$percent}) - #{$gap} + (#{$gap} / #{$x}));
+    }
+  } @else {
+    @if $gap==0 {
+      width: calc((100% / #{$x}));
+      max-width: calc((100% / #{$x}));
+    } @else {
+      width: calc((100% / #{$x}) - #{$gap} + (#{$gap} / #{$x}));
+      max-width: calc((100% / #{$x}) - #{$gap} + (#{$gap} / #{$x}));
+    }
+  }
+}
+@mixin media($x) {
+  @media screen and (max-width:#{$x}px ) {
+    @content;
+  }
+}
