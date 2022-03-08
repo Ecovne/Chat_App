@@ -49,6 +49,9 @@ io.on("connection", (socket) => {
     socket.on("send message", (data) => {
         socket.to(data.roomId).emit("send back message", data)
     })
+    socket.on("leave room", (chatid) => {
+        socket.leave(chatid)
+    });
 
 });
 

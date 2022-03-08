@@ -2,6 +2,7 @@ import React, { useEffect, lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { socket } from "../App.jsx";
 const Home = lazy(() => import("./Home/Home.jsx"));
 const Nav = lazy(() => import("./nav/Nav.jsx"));
 
@@ -20,7 +21,7 @@ function Latyout({ opensearch, setopensearch }) {
       navigate("/login", { replace: true });
     }
   }, [state]);
-
+ 
   return (
     <motion.div
       variants={animation}

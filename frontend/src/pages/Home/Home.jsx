@@ -6,12 +6,8 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import "./home.scss";
 import notification from "../../asst/notification_sound.mp3";
-import {
-  
-  chatavialable,
-  openChat,
-  sendMessage,
-} from "../../redux/chatSlice";
+import { chatavialable, openChat, sendMessage } from "../../redux/chatSlice";
+import { socket } from "../../App";
 
 const Home = () => {
   const scrollRef = useRef(null);
@@ -20,7 +16,6 @@ const Home = () => {
   const usetstate = useSelector((state) => state.authSlice);
   const dispatch = useDispatch();
   const [openchat, setopenchat] = useState(false);
-
   const messageSend = (e) => {
     e.preventDefault();
 
@@ -74,7 +69,10 @@ const Home = () => {
         <div
           className="item"
           key={chat._id}
-          onClick={() => opepchat(chatuser, chat._id)}
+          onClick={() => {
+            socket.emit("leave room", state.chatId);
+            opepchat(chatuser, chat._id);
+          }}
         >
           <div className="img">
             <img
@@ -127,7 +125,12 @@ const Home = () => {
         </div>
         <div className={openchat ? `messagechat open` : "messagechat"}>
           <div className="header">
-            <IoMdArrowRoundBack onClick={() => setopenchat(false)} />
+            <IoMdArrowRoundBack
+              onClick={() => {
+                setopenchat(false);
+                socket.emit("leave room", state.chatId);
+              }}
+            />
             <h6>{state.openChate?.user?.name || "no chat select"}</h6>
           </div>
           <div className="body">

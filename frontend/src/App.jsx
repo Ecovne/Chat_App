@@ -50,6 +50,8 @@ function App() {
       music.play();
       dispatch(addmessage(data));
     });
+
+   
   }, [socket]);
 
   return (

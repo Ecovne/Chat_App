@@ -6,10 +6,13 @@ import logo from "../../asst/default-person.png";
 import chatlogo from "../../asst//chat_logo.png";
 import "./nav.scss";
 import { logOut } from "../../redux/authSlice";
+import { socket } from "../../App";
 function Nav({ opensearch, setopensearch }) {
   const state = useSelector((state) => state.authSlice);
+  const chatstate = useSelector((state) => state.chatSlice);
   const dispatch = useDispatch();
   const logout = () => {
+    socket.emit("leave room", chatstate.chatId);
     dispatch(logOut());
   };
   return (
